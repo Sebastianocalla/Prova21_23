@@ -1,9 +1,8 @@
-# in questo file ci sarà lo script per creare il database
-import sqlite3
-
+# app/create_database.py
+from database import get_connection
 
 def create_database():
-    conn = sqlite3.connect('pesca.db')
+    conn = get_connection()
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -11,7 +10,7 @@ def create_database():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         regione TEXT,
         anno INTEGER,
-        valore_aggiunto INTEGER
+        valore_aggiunto REAL
     )
     ''')
 
@@ -29,7 +28,7 @@ def create_database():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         regione TEXT,
         anno INTEGER,
-        produttivita INTEGER
+        produttivita REAL
     )
     ''')
 
